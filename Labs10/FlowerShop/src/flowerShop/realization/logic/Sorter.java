@@ -1,28 +1,33 @@
 package flowerShop.realization.logic;
 
-import flowerShop.realization.comparator.FlowersSortByNameDESC;
-import flowerShop.realization.comparator.FlowersSortByPriseASC;
-import flowerShop.realization.comparator.FlowersSortByPriseDESC;
-import flowerShop.realization.comparator.FlowersSortNyNameASC;
 import flowerShop.realization.entities.container.Bouquet;
 import flowerShop.realization.entities.objects.Flowers;
 
-import java.util.*;
-
-
 public class Sorter {
 
-    private static Map<FlowersSortType, Comparator<Flowers>> map;
+    public static void sort (Bouquet array) {
 
-    static {
-        map = new HashMap<>();
-        map.put(FlowersSortType.NAME_ASC, new FlowersSortNyNameASC());
-        map.put(FlowersSortType.NAME_DESC, new FlowersSortByNameDESC());
-        map.put(FlowersSortType.PRISE_ASC, new FlowersSortByPriseASC());
-        map.put(FlowersSortType.Prise_DESC, new FlowersSortByPriseDESC());
+        boolean flag = true;
+        System.out.println("Start");
+        for(int j = 0; j < array.getSize() - 1; j++){
+            System.out.println("Start23");
+            flag = true;
+            for (int i = 0; i < array.getSize() - 1 - j; i++){
+                System.out.println("Start2323445");
+
+                    Flowers t = array.get(i);
+                    array.set(i,array.get(i + i));
+                    array.set(i + i, t);
+                    flag = false;
+                    System.out.println(array.get(i));
+                    System.out.println("Start23445");
+
+                if(flag){
+                    break;
+                }
+            }
+        }
+
     }
 
-    public static void sort(Bouquet bouquet, FlowersSortType type) {
-        Collections.sort(bouquet.getBouqet(), map.get(type));
-    }
 }

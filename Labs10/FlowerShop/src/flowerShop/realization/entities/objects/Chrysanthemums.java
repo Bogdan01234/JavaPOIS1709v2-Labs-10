@@ -2,11 +2,8 @@ package flowerShop.realization.entities.objects;
 
 public class Chrysanthemums extends Flowers {
 
+    private static final String name = "Chrysanthemum";
     private String colour;
-
-    {
-        setName("Chrysanthemum");
-    }
 
     public Chrysanthemums() {
     }
@@ -16,6 +13,9 @@ public class Chrysanthemums extends Flowers {
         this.colour = colour;
     }
 
+    public static String getName() {
+        return name;
+    }
 
     public String getColour() {
         return colour;
@@ -27,7 +27,7 @@ public class Chrysanthemums extends Flowers {
 
     @Override
     public String toString() {
-        return "Flower- " + getName() +
+        return "Flower- " + name +
                 " colour- '" + colour + '\'' + " price- " + getPrice();
     }
 }

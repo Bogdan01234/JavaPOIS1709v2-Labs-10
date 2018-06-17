@@ -2,18 +2,19 @@ package flowerShop.realization.entities.objects;
 
 public class Dahlias extends Flowers {
 
+    private static final String name = "Dahlia";
     private String colour;
 
-    {
-        setName("Dahlia");
-    }
-
-    public Dahlias() {
+    public Dahlias(String colour) {
     }
 
     public Dahlias(double price, String colour) {
         super(price);
         this.colour = colour;
+    }
+
+    public static String getName() {
+        return name;
     }
 
     public String getColour() {
@@ -26,7 +27,7 @@ public class Dahlias extends Flowers {
 
     @Override
     public String toString() {
-        return "Flower- " + getName() +
+        return "Flower- " + name +
                 " colour- '" + colour + '\'' + " price- " + getPrice();
     }
 }

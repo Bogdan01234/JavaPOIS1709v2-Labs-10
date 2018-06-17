@@ -1,9 +1,12 @@
 package flowerShop.realization.entities.objects;
 
-public class Asters extends Flowers{
+public class Asters extends Flowers {
 
-    private static final String name = "Aster";
     private String colour;
+
+    {
+        setName("Aster");
+    }
 
     public Asters(String colour) {
     }
@@ -11,10 +14,6 @@ public class Asters extends Flowers{
     public Asters(double price, String colour) {
         super(price);
         this.colour = colour;
-    }
-
-    public static String getName() {
-        return name;
     }
 
     public String getColour() {
@@ -27,7 +26,7 @@ public class Asters extends Flowers{
 
     @Override
     public String toString() {
-        return "Flower- " + name +
+        return "Flower- " + getName() +
                 " colour- '" + colour + '\'' +  " price- " + getPrice();
     }
 }

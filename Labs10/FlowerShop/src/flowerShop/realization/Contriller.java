@@ -14,7 +14,6 @@ import flowerShop.realization.entities.objects.Chrysanthemums;
 import flowerShop.realization.entities.objects.Dahlias;
 import flowerShop.realization.entities.objects.Rose;
 import flowerShop.realization.logic.Calculation;
-import flowerShop.realization.logic.FlowersSortType;
 import flowerShop.realization.logic.Sorter;
 import flowerShop.realization.view.View;
 
@@ -22,10 +21,10 @@ public class Contriller {
 
     public static void main(String[] args) {
         Rose rose = new Rose(12,"Red");
-        Rose rose2 = new Rose(12,"Black");
-        Rose rose3 = new Rose(12,"Blue");
-        Dahlias dahlias = new Dahlias(9, "Red");
-        Dahlias dahlias2 = new Dahlias(9, "Yellow");
+        Rose rose2 = new Rose(14,"Black");
+        Rose rose3 = new Rose(11,"Blue");
+        Dahlias dahlias = new Dahlias(16, "Red");
+        Dahlias dahlias2 = new Dahlias(10, "Yellow");
         Asters asters = new Asters(7,"Yellow");
         Chrysanthemums chrysanthemums = new Chrysanthemums(8, "Orange");
 
@@ -42,14 +41,9 @@ public class Contriller {
         View.print(bouquet.toString());
         View.print("Bouqet prise: " + Calculation.priceCalculation(bouquet) + "$");
 
-        Sorter.sort(bouquet, FlowersSortType.NAME_ASC);
-
+        Sorter.sort(bouquet);
         View.print(bouquet.toString());
         View.print("Bouqet prise: " + Calculation.priceCalculation(bouquet) + "$");
 
-        Sorter.sort(bouquet, FlowersSortType.Prise_DESC);
-
-        View.print(bouquet.toString());
-        View.print("Bouqet prise: " + Calculation.priceCalculation(bouquet) + "$");
     }
 }

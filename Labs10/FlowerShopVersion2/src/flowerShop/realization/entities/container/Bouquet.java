@@ -2,77 +2,58 @@ package flowerShop.realization.entities.container;
 
 import flowerShop.realization.entities.objects.Flowers;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Bouquet {
 
-    public static final int DEFAULT_SIZE = 0;
-    private Flowers[] bouqet;
-    private int size = 0;
+    private List<Flowers> bouqet;
 
     public Bouquet() {
-        bouqet = new Flowers[DEFAULT_SIZE];
+        bouqet = new ArrayList<>();
     }
 
-    public Bouquet(Flowers[] bouqet) {
+    public Bouquet(List<Flowers> bouqet) {
         this.bouqet = bouqet;
-        size = bouqet.length;
     }
 
-    public Flowers[] getBouqet() {
+    public List<Flowers> getBouqet() {
         return bouqet;
     }
 
-    public void setBouqet(Flowers[] bouqet) {
+    public void setBouqet(List<Flowers> bouqet) {
         this.bouqet = bouqet;
     }
 
     public void add(Flowers flowers){
-        Flowers[] bouquet2 = new Flowers[size];
-        for (int i = 0; i < size; i++){
-            bouquet2[i] = bouqet[i];
-        }
-
-        bouqet = new Flowers[++size];
-        bouqet[size - 1] = flowers;
-
-        for (int i = 0; i < size - 1; i++){
-            bouqet[i] = bouquet2[i];
-        }
+        bouqet.add(flowers);
     }
 
-    public boolean remove (int index){
-        boolean flag = false;
-        if (bouqet[index] != null) {
-            bouqet[index] = null;
-            flag = true;
-            size--;
-        }
-        return flag;
+    public void remove (int index){
+        bouqet.remove(index);
     }
 
     public boolean removeAll() {
         bouqet = null;
-        size = 0;
         return true;
     }
 
     public int getSize(){
-        return size;
+        return bouqet.size();
     }
 
     public Flowers get(int index){
-        return bouqet[index];
+        return bouqet.get(index);
     }
 
     public void set(int index, Flowers flowers){
-        bouqet[index] = flowers;
+        bouqet.set(index,flowers);
     }
 
     @Override
     public String toString() {
-        return "Bouquet" + Arrays.toString(bouqet) +
-                ", size=" + size +
+        return "Bouquet" + bouqet +
+                ", size=" + bouqet.size() +
                 '}';
     }
 }
